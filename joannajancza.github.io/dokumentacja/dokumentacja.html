@@ -1,0 +1,79 @@
+<DOCUMENT html>
+    <html lang="pl">
+        <head>
+           <!--metadane identyfikacji-->
+           
+            <meta charset="utf-8">
+            <meta name="description" content="Strona interenetowa na potrzeby realizacji projektu">
+            <meta name="keywords" content="ATE, geodezja">
+            <meta name="author" content="JJ">
+            <title> Analiza terenu projekt</title>
+            <link rel="stylesheet" href="../main.css">           
+        </head>
+        <body>
+            <header>
+               <div id="logotyp">
+                    <h1 class="logo">
+                    ANALIZA TERENU - PROJEKT
+                    </h1>
+               </div>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">Strona główna</a><li>
+                    <li><a href="../opis.html">O projekcie</a><li>
+                    <li><a href=../dane.html>Dane źródłowe</a><li>
+                    <li><a href="/modele.html">Modele</a><li>
+                </ul>
+            </nav>
+            
+            
+            
+            
+            <div class="container">
+                <div class="tekst">
+                   
+                    <article>
+                        <header>
+                            <h1>SPOSÓB WYKONANIA</h1>
+                            <p>17.12.2018 | 10:45 | Joanna</p>
+                        </header>
+                        <p>
+                            </br></br>
+                        Analiza została wykonana dla terenu powiatu sejneńskiego (województwo podlaskie).
+</br></br>
+Pracę rozpoczęłam od utworzenia modelu w aplikacji Model Builder, który przycinał wszystkie interesujące mnie warstwy z OSM do terenu wybranego powiatu. Przy wykorzystaniu iteracji proces ten został jeszcze bardziej zautomatyzowany. 
+</br></br>
+Następnie utworzony został drugi model. Należało wprowadzić do niego poszczególne warstwy OSM i w niektórych przypadkach dokonać selekcji po atrybutach, w celu wybrania interesujących nas obiektów z danej warstwy. Następnie model ten za pomocą funkcji MULTIPLE RING BUFFER tworzy wiele buforów w określonych odległościach wokół wprowadzanego obiektu. 
+</br></br>
+Następnym krokiem było wykonanie obliczenia przecięć geometrycznych i przypisanie atrybutów z wejściowych klas do klasy wyjściowej za pomocą funkcji IDENTITY.
+</br></br>
+Następnie dane te zostały przekonwertowane z poszczególnych klas do rastrów za pomocą funkcji FEATURE TO RASTER. Kolejnym krokiem było nałożenie na siebie wszystkich rastrów za pomocą funkcji WEIGHTED OVERLAY. Pozwala ona nałożyć te rastry używając wspólnej skali pomiarowej i wagi według ważności ustalonej przez nas. Nałożone rastry zostały następnie przycięte do obszaru wybranego powiatu za pomocą funkcji CLIP. Następnie za pomocą funkcji CON została przeprowadzona warunkowa ocena dla każdej z komórek wejściowych rastra wejściowego. Ostatnim etapem w modelu było użycie funkcji MAJORITY FILTER w celu przefiltrowania i wybrania największej wartości – czyli wskazania miejsca najbardziej dogodnego pod względem lokalizacji szkoły.
+</br></br>
+Kolejnym krokiem było utworzenie trzeciego modelu, który po utworzeniu klasy obiektów z pliku zawierającego współrzędne XYZ za pomocą funkcji ASCII 3D TO FEATURE CLASS, następnie zinterpolował powierzchnię rastra z punktów za pomocą techniki odwróconej odległości IDW. Na koniec raster został przycięty do obszaru powiatu i zidentyfikowane zostały nachylenia w każdej komórce – SLOPE. 
+</br></br></br></br>
+Na koniec należało utworzyć 13 map przedstawiających poszczególne wyniki analizy:</br></br>
+•	9 map z buforami dla poszczególnych warstw</br></br>
+•	mapa fizyczna – slope</br></br>
+•	mapa topograficzna – warstwy OSM</br></br>
+•	mapa z nałożonymi buforami na siebie</br></br>
+•	mapa z najlepsza lokalizacją dla szkoły</br></br>
+</br></br>
+Mapa została wykonana w układzie 1992 (kod EPSG 2180). 
+</br></br>
+Ostatnią rzeczą było dodanie pola tekstowego do okna danych zawierającego podstawowe dane o powiecie.
+</br></br>
+Na koniec należało dopracować wygląd pracy  pod względem graficznym, przeprowadzić tzw. redakcję.
+
+                        
+                        
+                        
+                        </p>
+                    
+                    
+                    </article>
+                </div>
+            
+            </div>
+        </body>
+    </html>

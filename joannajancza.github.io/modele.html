@@ -1,0 +1,148 @@
+<DOCUMENT html>
+    <html lang="pl">
+        <head>
+           <!--metadane identyfikacji-->
+           
+            <meta charset="utf-8">
+            <meta name="description" content="Strona interenetowa na potrzeby realizacji projektu">
+            <meta name="keywords" content="ATE, geodezja">
+            <meta name="author" content="JJ">
+            <title> Analiza terenu projekt</title>
+            
+            
+            <link rel="stylesheet" href="../main.css">
+            
+            <link rel="stylesheet" href="../lib/leaflet.css">
+            
+        </head>
+        <body>
+            <header>
+               <div id="logotyp">
+                    <h1 class="logo">
+                    ANALIZA TERENU - PROJEKT
+                    </h1>
+               </div>
+            </header>
+            
+            <nav>
+                <ul class="menu">
+                    <li><a href="../index.html">Strona główna</a><li>
+                    <li><a href="/opis.html">O projekcie</a><li>
+                    <li><a href="/dane.html">Dane źródłowe</a><li>
+                    <li><a href="#">Modele</a><li>
+                </ul>
+            </nav>
+            
+             
+             
+            <div class="container">
+                <div class="modele">
+                    <article>
+                        <header>
+                            <h1>MODELE UŻYTE PODCZAS WYKONYWANIA PROJEKTU</h1>
+                            <p>17.12.2018 | 10:45 | Joanna</p>
+                        </header>
+                        <p>
+                        </br></br>
+Model nr 1
+                        </br></br>
+                       
+                            <div class="obrazek">
+                                
+                                <img src="/img/model1.png">
+                                
+                            </div>
+                            </br></br> 
+Model przycina wykorzystywane warstwy OSM do terenu zainteresowania. Pierwszym etapem jest wyselekcjonowanie z warstwy PRG-powiaty powiatu sejneńskiego. Jest to obszar, do którego wszystkie warstwy będą przycinane. Kolejnym narzędziem użytym w modelu jest narzędzie iteracji. Pozwala ono pobierać wszystkie pliki, które należy przyciąć. 
+Na koniec wszystkie wybrane warstwy są przycinane do wyselekcjonowanego wcześniej obszaru i zapisywane jako nowe warstwy.
+ </br></br> </br></br>
+Model nr 2
+                            </br></br> 
+                            <div class="obrazek">
+                                
+                                <img src="/img/model2.png">
+                                
+                            </div>
+                            </br></br> 
+Z niektórych warstw najpierw należało wyselekcjonować tylko interesujące nas obiekty, np. tereny rekreacyjne. Użyto do tego narzędzia SELECT. Selekcjonuje ono obiekty po atrybutach.
+                        </br></br>
+                            <div class="obrazek">
+                                
+                                <img src="/img/2.1.png">
+                                
+                            </div>
+                        </br></br>
+Kolejnym narzędziem użytym w modelu jest narzędzie MULTIPLE RING BUFFER.  Narzędzie to tworzy wiele buforów w określonych odległościach wokół wprowadzanej warstwy. 
+                        </br></br>
+                            <div class="obrazek">
+                                
+                                <img src="/img/2.2.png">
+                                
+                            </div>
+                        </br></br>
+Kolejnym narzędziem było narzędzie IDENTITY, które oblicza przecięcia geometryczne stref buforowych dla obszaru powiatu sejneńskiego.
+                        </br></br>
+                            <div class="obrazek">
+                                
+                                <img src="/img/2.3.png">
+                                
+                            </div>
+                        </br></br>
+Następnie dane przekonwertowano z poszczególnych klas do rastrów za pomocą funkcji FEATURE TO RASTER.
+                        </br></br>
+                            <div class="obrazek">
+                                
+                                <img src="/img/2.4.png">
+                                
+                            </div>
+                        </br></br>
+Kolejnym krokiem było nałożenie na siebie wszystkich rastrów za pomocą funkcji WEIGHTED OVERLAY. Pozwala ona nałożyć te rastry używając wspólnej skali pomiarowej i wagi według ważności ustalonej przez nas. 
+                        </br></br>
+                            <div class="obrazek">
+                                
+                                <img src="/img/2.5.png">
+                                
+                            </div>
+                        </br></br>
+Nałożone rastry zostały następnie przycięte do obszaru wybranego powiatu za pomocą funkcji CLIP. 
+                        </br></br>
+                            <div class="obrazek">
+                                
+                                <img src="/img/2.6.png">
+                                
+                            </div>
+                        </br></br>
+Następnie za pomocą funkcji CON została przeprowadzona warunkowa ocena dla każdej z komórek wejściowych rastra wejściowego. 
+                        </br></br>
+                            <div class="obrazek">
+                                
+                                <img src="/img/2.7.png">
+                                
+                            </div>
+                        </br></br>
+Ostatnim etapem w modelu było użycie funkcji MAJORITY FILTER w celu przefiltrowania i wybrania największej wartości – czyli wskazania miejsca najbardziej dogodnego pod względem lokalizacji szkoły.
+                        </br></br>
+                            <div class="obrazek">
+                                
+                                <img src="/img/2.8.png">
+                                
+                            </div>
+                        </br></br></br></br>
+Model nr 3
+                        </br></br>
+                            <div class="obrazek">
+                                
+                                <img src="/img/model3.png">
+                                
+                            </div>
+                        </br></br>
+Narzędzie ASCII 3D TO FEATURE CLASS importuje funkcje 3D z pliku ASCII zapisanego w formacie XYZ do nowej klasy obiektów. Następnie narzędzie IDW interpoluje powierzchnię rastra z punktów, za pomocą techniki odwróconej odległości. Na koniec raster zostaje przycięty za pomocą narzędzia CLIP do obszaru zainteresowania oraz zidentyfikowane zostały nachylenia w każdej komórce za pomocą narzędzia SLOPE.
+                </p>
+                    
+                    
+                    </article>
+                </div>
+            
+            </div>
+        </body>
+    </html>
